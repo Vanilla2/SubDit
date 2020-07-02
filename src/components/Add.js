@@ -58,7 +58,7 @@ const Login = (props) => {
         if (utils.validateAddTopic(data) === true) {
             api.addTopic(data).then(x => {
                 setLocalSubmited(true);
-                navigate("/subdit");
+                navigate("/SubDit");
             })
         }
         else{

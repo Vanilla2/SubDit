@@ -12,7 +12,7 @@ const Empty = ({ children }) => {
 const Index = () => {
     return(
         <Router>
-            <Empty path = "/subdit">
+            <Empty path = "/SubDit">
                 <Home path = "/"/>
                 <Topic path = "/topics/:title"/>
                 <Add path = "/add"/>

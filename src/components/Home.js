@@ -27,7 +27,7 @@ export default () => {
                             </Typography>
                             <List>
                                 {topics.map((x, index) => (
-                                    <Link style = {{textDecoration: "none", color: "black"}} key = {x._id} to = {"/subdit/topics/" + x.title}>
+                                    <Link style = {{textDecoration: "none", color: "black"}} key = {x._id} to = {"/SubDit/topics/" + x.title}>
                                         <ListItem button>
                                             <Typography variant="h6">
                                                 {index+1}. {x.title}
