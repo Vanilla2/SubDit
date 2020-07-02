@@ -79,7 +79,7 @@ const Login = (props) => {
     });
     return(
         <>
-            <Link to ="/" style ={{textDecoration: "none", color: "White", position: "absolute", left: "15", top: "15", zIndex: "10000"}}>
+            <Link to ="/SubDit" style ={{textDecoration: "none", color: "White", position: "absolute", left: "15", top: "15", zIndex: "10000"}}>
                 <Typography style = {{margin:"15px"}} variant = "h5">
                     Back to Home
                 </Typography>
