@@ -3,7 +3,8 @@ import "../style/index.css";
 import { Router, Link } from "@reach/router"
 import Home from "./Home";
 import Topic from "./Topic";
-import Add from "./Add";
+import AddTopic from "./AddTopic";
+import AddPost from "./AddPost";
 
 const Empty = ({ children }) => {
     return children;
@@ -15,7 +16,9 @@ const Index = () => {
             <Empty path = "/SubDit">
                 <Home path = "/"/>
                 <Topic path = "/topics/:title"/>
-                <Add path = "/add"/>
+                <AddTopic path = "/addtopic"/>
+                <AddPost path = "/addpost/:topic"/>
+                <Home default />
             </Empty>
         </Router>
     )

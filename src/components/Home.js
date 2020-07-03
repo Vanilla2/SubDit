@@ -14,7 +14,7 @@ export default () => {
     }, []);
     return(
         <>
-            <Top/>
+            <Top button = "Add A Topic" link = "/SubDit/addtopic"/>
             <Container maxWidth="md">
                 <Typography style = {{textAlign: "center", margin: "20px"}} variant="h3">
                     Welcome to my swamp

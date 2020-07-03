@@ -32,8 +32,9 @@ const style = {
         marginBottom: "15px"
     },
     Brand:{
-        position: "absolute",
-        top: "23%",
+        // position: "absolute",
+        // top: "23%",
+        marginBottom: "30px",
         zIndex: "1000",
         textAlign: "center",
         color: "white"
