@@ -47,7 +47,7 @@ export default (props) =>{
     }
     return(
         <Container maxWidth="sm" style = {style.Container}>
-            <Typography variant="h5" style = {{marginBottom: 15}}>k
+            <Typography variant="h5" style = {{marginBottom: 15}}>
                 You are adding a post to the topic: {props.topic}
             </Typography>
             <Custom color = {"primary"} onChange = {event => setTitle(event.target.value)} value = {title} style ={style.Element} id="outlined-basic" label="Title" variant="filled" />
