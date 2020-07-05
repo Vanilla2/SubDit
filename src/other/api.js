@@ -18,7 +18,9 @@ const addTopic = async (data) => {
             },
             body: JSON.stringify(data)
         })
-        return res.json();
+        let rtn = await res.json();
+        rtn.status = res.status;
+        return rtn;
     }
     catch (e) {
         console.error(e);

@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import {Container, Button, Typography, List, ListItemText, ListItem, Grid, Paper} from "@material-ui/core";
-import {Link} from "@reach/router";
+import {Container, Typography, List, ListItem, Grid, Paper} from "@material-ui/core";
+import {Link} from "react-router-dom"
 import Top from "./Top";
 import api from "../other/api";
 
 export default () => {
     const [topics, setTopics] = useState([]);
-    console.log(topics);
     useEffect(() => {
         api.getTopics().then((data) =>{
             setTopics(data);
@@ -14,7 +13,7 @@ export default () => {
     }, []);
     return(
         <>
-            <Top button = "Add A Topic" link = "/SubDit/addtopic"/>
+            <Top button = "Add A Topic" link = "/addtopic"/>
             <Container maxWidth="md">
                 <Typography style = {{textAlign: "center", margin: "20px"}} variant="h3">
                     Welcome to my swamp
@@ -27,7 +26,7 @@ export default () => {
                             </Typography>
                             <List>
                                 {topics.map((x, index) => (
-                                    <Link style = {{textDecoration: "none", color: "black"}} key = {x._id} to = {"/SubDit/topics/" + x.title}>
+                                    <Link style = {{textDecoration: "none", color: "black"}} key = {x._id} to = {"/topics/" + x.title}>
                                         <ListItem button>
                                             <Typography variant="h6">
                                                 {index+1}. {x.title}
@@ -43,7 +42,7 @@ export default () => {
                             <Typography style ={{marginBottom: "5px"}} variant = "h5">
                                 About this Site:
                             </Typography>
-                            <Typography style ={{fontWeight: 500}}variant = "h5">
+                            <Typography style ={{fontWeight: 500}} variant = "h5">
                                 If you are here to test this magnificent piece of garbage, then HI!
                             </Typography>
                         </Paper>

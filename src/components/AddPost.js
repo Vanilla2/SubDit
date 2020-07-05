@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import Box from "@material-ui/core/Box";
 import {styled} from "@material-ui/core/styles";
 import {CircularProgress, TextField} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import api from "../other/api";
-import {useNavigate} from "@reach/router";
 const Custom = styled(TextField)({
     borderRadius: "4px",
     backgroundColor: "rgb(255,255,255)",
@@ -28,7 +26,6 @@ const style = {
 
 
 export default (props) =>{
-    const navigate = useNavigate();
     const [title,setTitle] = useState("");
     const [author,setAuthor] = useState("");
     const [description,setDescription] = useState("");
@@ -40,15 +37,15 @@ export default (props) =>{
             author:author,
             description: description
         }
-        api.addPost(props.topic, obj).then(x =>{
+        api.addPost(props.match.params.topic, obj).then(() =>{
             setLoading(false);
-            navigate("/SubDit/topics/" + props.topic)
+            props.history.push("/topics/" + props.match.params.topic);
         })
     }
     return(
         <Container maxWidth="sm" style = {style.Container}>
             <Typography variant="h5" style = {{marginBottom: 15}}>
-                You are adding a post to the topic: {props.topic}
+                You are adding a post to the topic: {props.match.params.topic}
             </Typography>
             <Custom color = {"primary"} onChange = {event => setTitle(event.target.value)} value = {title} style ={style.Element} id="outlined-basic" label="Title" variant="filled" />
             <Custom color = {"primary"} onChange = {event => setAuthor(event.target.value)} value = {author} style ={style.Element} id="outlined-basic" label="Author" variant="filled" />

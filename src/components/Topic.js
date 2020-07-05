@@ -4,7 +4,7 @@ import api from "../other/api";
 import Top from "./Top";
 
 export default (props) => {
-    const [title, setTitle] = useState(props.title);
+    const [title] = useState(props.match.params.title);
     const [description, setDescription] = useState("");
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -12,14 +12,13 @@ export default (props) => {
             setDescription(x.description);
         });
         api.getTopicPosts(title).then(x => {
-            console.log(x);
             setPosts(x);
         })
-    }, [])
+    }, [title])
     return(
         <>
-            <Top button = "Add A Post" link = {"/SubDit/addpost/" + title}/>
-            <Container maxWidth="md">
+            <Top button = "Add A Post" link = {"/addpost/" + title}/>
+            <Container style ={{padding: 20}} maxWidth="md">
                 <Typography variant = "h4">
                     Topic: {title}
                 </Typography>
@@ -30,7 +29,7 @@ export default (props) => {
                     Posts:
                 </Typography>
                 {posts.map(x => (
-                    <Paper elevation = {3} style = {{margin:10, padding:15}}>
+                    <Paper key = {x._id} elevation = {3} style = {{margin:10, padding:15}}>
                         <Typography variant = "h5">
                             {x.title}
                         </Typography>
