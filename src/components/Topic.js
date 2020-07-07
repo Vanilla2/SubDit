@@ -29,17 +29,21 @@ export default (props) => {
                     Posts:
                 </Typography>
                 {posts.map(x => (
-                    <Paper key = {x._id} elevation = {3} style = {{margin:10, padding:15}}>
-                        <Typography variant = "h5">
-                            {x.title}
-                        </Typography>
-                        <Typography variant = "subtitle1">
-                            {x.author}
-                        </Typography>
-                        <Typography variant = "h6">
-                            {x.description}
-                        </Typography>
-                    </Paper>
+                    <div key = {x._id} style = {{margin:10, border: "1px solid gray", borderRadius: "5px"}}>
+                        <div style = {{padding: 10}}>
+                            <Typography variant = "h5">
+                                {x.title}
+                            </Typography>
+                            <Typography variant = "subtitle1">
+                                {x.author}
+                            </Typography>
+                        </div>
+                        <div className="container" >
+                            <div className="image-wrapper" style ={{position: "relative", paddingBottom: "56.2%"}}>
+                                <img src={x.image} alt="Not found" style = {{position: "absolute", objectFit: "cover", width: "100%", height: "100%"}} />
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </Container>
         </>

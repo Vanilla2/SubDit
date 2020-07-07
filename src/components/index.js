@@ -9,6 +9,7 @@ import "../style/index.css";
 import {
     HashRouter as Router,
     Route,
+    Switch,
 } from "react-router-dom";
 import Home from "./Home";
 import Topic from "./Topic";
@@ -18,10 +19,12 @@ import AddPost from "./AddPost";
 const Index = () => {
     return(
         <Router>
-            <Route exact path = "/" component = {Home}/>
-            <Route exact path = "/addtopic" component = {AddTopic}/>
-            <Route path = "/topics/:title" component = {Topic}/>
-            <Route path = "/addpost/:topic" component = {AddPost}/>
+            <Switch>
+                <Route exact path = "/" component = {Home}/>
+                <Route exact path = "/addtopic" component = {AddTopic}/>
+                <Route path = "/topics/:title" component = {Topic}/>
+                <Route path = "/addpost/:topic" component = {AddPost}/>
+            </Switch>
         </Router>
     )
 }

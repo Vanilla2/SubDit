@@ -28,14 +28,14 @@ const style = {
 export default (props) =>{
     const [title,setTitle] = useState("");
     const [author,setAuthor] = useState("");
-    const [description,setDescription] = useState("");
+    const [image,setImage] = useState("");
     const [loading, setLoading] = useState(false);
     const Submit = () => {
         setLoading(true);
         const obj = {
             title:title,
             author:author,
-            description: description
+            image: image,
         }
         api.addPost(props.match.params.topic, obj).then(() =>{
             setLoading(false);
@@ -49,7 +49,7 @@ export default (props) =>{
             </Typography>
             <Custom color = {"primary"} onChange = {event => setTitle(event.target.value)} value = {title} style ={style.Element} id="outlined-basic" label="Title" variant="filled" />
             <Custom color = {"primary"} onChange = {event => setAuthor(event.target.value)} value = {author} style ={style.Element} id="outlined-basic" label="Author" variant="filled" />
-            <Custom color = {"primary"} multiline rows = {5} onChange = {event => setDescription(event.target.value)} value = {description} style ={style.Element} id="outlined-basic" label="Body" variant = "filled"/>
+            <Custom color = {"primary"} multiline rows = {5} onChange = {event => setImage(event.target.value)} value = {image} style ={style.Element} id="outlined-basic" label="Image-Link" variant = "filled"/>
             {loading ?
                 <CircularProgress style ={{zIndex: "100", marginTop: "10px"}}/> :
                 <Button onClick={Submit} style={style.Element} variant="contained" color="primary">
